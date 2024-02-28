@@ -3,12 +3,14 @@ package com.rubenvj.carnejoven.features.buy.data.local;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.rubenvj.carnejoven.features.buy.domain.Buy;
+import com.rubenvj.carnejoven.features.user.domain.User;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,7 +24,7 @@ public class BuyFileLocalDataSource {
 
     private final Type type = new TypeToken<Buy>(){}.getType();
 
-    public void save(Buy buy) {
+    public void saveBuy(Buy buy) {
         try {
             if (!Files.exists(Paths.get(nameFile))) {
                 Files.createFile(Paths.get(nameFile));
@@ -30,9 +32,9 @@ public class BuyFileLocalDataSource {
             FileWriter myWriter = new FileWriter(nameFile, true);
             myWriter.write(gson.toJson(buy) + System.lineSeparator());
             myWriter.close();
-            System.out.println("Datos guardados correctamente");
+            System.out.println("Compra guardada correctamente");
         } catch (IOException e) {
-            System.out.println("Ha ocurrido un error al guardar la información.");
+            System.out.println("Ha ocurrido un error al guardar la compra.");
         }
     }
 
@@ -49,6 +51,21 @@ public class BuyFileLocalDataSource {
             System.out.println("Ha ocurrido un error al obtener las compras");
         }
         return null;
+    }
+
+    public ArrayList<Buy> obtainBuys() {
+        ArrayList<Buy> buys = new ArrayList<>();
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(nameFile));
+            for(String line : lines) {
+                Buy buy = gson.fromJson(line, Buy.class);
+                buys.add(buy);
+            }
+        } catch (IOException e) {
+            System.out.println("Error al obtener compras");
+        }
+
+        return buys;
     }
 
     public void clear() {

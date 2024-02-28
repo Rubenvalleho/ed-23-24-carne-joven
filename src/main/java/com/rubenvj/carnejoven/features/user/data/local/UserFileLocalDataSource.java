@@ -2,13 +2,15 @@ package com.rubenvj.carnejoven.features.user.data.local;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.rubenvj.carnejoven.features.buy.domain.Buy;
+import com.rubenvj.carnejoven.features.promotion.domain.Promotion;
+import com.rubenvj.carnejoven.features.user.domain.User;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,41 +18,42 @@ import java.util.List;
  */
 public class UserFileLocalDataSource {
 
-    private String nameFile = "buy.txt";
+    private String nameFile = "user.txt";
 
     private Gson gson = new Gson();
 
-    private final Type type = new TypeToken<Buy>(){}.getType();
+    private final Type type = new TypeToken<User>(){}.getType();
 
-    public void save(Buy buy) {
+    public void saveUser(User user) {
         try {
             if (!Files.exists(Paths.get(nameFile))) {
                 Files.createFile(Paths.get(nameFile));
             }
             FileWriter myWriter = new FileWriter(nameFile, true);
-            myWriter.write(gson.toJson(buy) + System.lineSeparator());
+            myWriter.write(gson.toJson(user) + System.lineSeparator());
             myWriter.close();
-            System.out.println("Datos guardados correctamente");
+            System.out.println("Usuario guardado correctamente");
         } catch (IOException e) {
-            System.out.println("Ha ocurrido un error al guardar la información.");
+            System.out.println("Ha ocurrido un error al guardar el usuario.");
         }
     }
 
-    public Buy obtainBuy(String buyId) {
+    public User obtainUser (String dni) {
         try {
             List<String> lines = Files.readAllLines(Paths.get(nameFile));
             for (String line: lines) {
-                Buy buy = gson.fromJson(line, Buy.class);
-                if (buy.getBuyId().equals(buyId)) {
-                    return buy;
+                User user = gson.fromJson(line, User.class);
+                if (user.getDni().equals(dni)) {
+                    return user;
                 }
             }
         } catch (IOException e) {
-            System.out.println("Ha ocurrido un error al obtener las compras");
+            System.out.println("Ha ocurrido un error al obtener el usuario");
         }
         return null;
     }
 
+    
     public void clear() {
         try {
             FileWriter myWriter = new FileWriter(nameFile);
