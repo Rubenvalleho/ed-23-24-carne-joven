@@ -6,9 +6,9 @@ import com.rubenvj.carnejoven.features.user.domain.UserRepository;
 
 public class UserDataRepository implements UserRepository {
     private UserFileLocalDataSource userFileLocalDataSource;
-    private UserDataRepository instance = null;
+    private static UserDataRepository instance = null;
 
-    public UserDataRepository newInstance() {
+    public static UserDataRepository newInstance() {
         if (instance == null) {
             instance = new UserDataRepository();
         }

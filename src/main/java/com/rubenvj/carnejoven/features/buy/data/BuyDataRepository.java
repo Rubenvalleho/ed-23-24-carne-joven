@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public class BuyDataRepository implements BuyRepository {
     private BuyFileLocalDataSource buyFileLocalDataSource;
-    private BuyDataRepository instance = null;
-    public BuyDataRepository newInstance () {
+    private static BuyDataRepository instance = null;
+    public static BuyDataRepository newInstance () {
         if (instance == null) {
             instance = new BuyDataRepository();
         }

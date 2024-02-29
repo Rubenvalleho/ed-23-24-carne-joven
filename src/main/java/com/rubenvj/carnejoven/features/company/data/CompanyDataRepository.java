@@ -6,9 +6,9 @@ import com.rubenvj.carnejoven.features.company.domain.CompanyRepository;
 
 public class CompanyDataRepository implements CompanyRepository {
     private CompanyFileLocalDataSource companyFileLocalDataSource;
-    private CompanyDataRepository instance = null;
+    private static CompanyDataRepository instance = null;
 
-    public CompanyDataRepository newInstance() {
+    public static CompanyDataRepository newInstance() {
         if (instance == null) {
             instance = new CompanyDataRepository();
         }

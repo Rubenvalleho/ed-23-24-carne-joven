@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public class PromotionDataRepository implements PromotionRepository {
     private PromotionFileLocalDataSource promotionFileLocalDataSource;
-    private PromotionDataRepository instance = null;
+    private static PromotionDataRepository instance = null;
 
-    public PromotionDataRepository newInstance() {
+    public static PromotionDataRepository newInstance() {
         if (instance == null) {
             instance = new PromotionDataRepository();
         }
