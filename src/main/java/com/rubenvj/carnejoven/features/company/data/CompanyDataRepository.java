@@ -5,7 +5,7 @@ import com.rubenvj.carnejoven.features.company.domain.Company;
 import com.rubenvj.carnejoven.features.company.domain.CompanyRepository;
 
 public class CompanyDataRepository implements CompanyRepository {
-    private CompanyFileLocalDataSource companyFileLocalDataSource;
+    private CompanyFileLocalDataSource companyFileLocalDataSource = new CompanyFileLocalDataSource();
     private static CompanyDataRepository instance = null;
 
     public static CompanyDataRepository newInstance() {

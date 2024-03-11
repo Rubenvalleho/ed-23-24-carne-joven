@@ -1,0 +1,3 @@
+{"buyId":"001","buyDate":"29/02/2024","promotion":{"promotionId":"777","title":"Promocion","description":"Promocion","discount":"15%"},"user":{"dni":"708","name":"Rub�n","lastName":"Vallejo","address":"Casa"}}
+{"buyId":"001","buyDate":"29/02/2024","promotion":{"promotionId":"777","title":"Promocion","description":"Promocion","discount":"15%"},"user":{"dni":"708","name":"Rubén","lastName":"Vallejo","address":"Casa"}}
+{"buyId":"001","buyDate":"29/02/2024","promotion":{"promotionId":"777","title":"Promocion","description":"Promocion","discount":"15%"},"user":{"dni":"708","name":"Rubén","lastName":"Vallejo","address":"Casa"}}

@@ -9,6 +9,8 @@ import com.rubenvj.carnejoven.features.promotion.presentation.PromotionPresentat
 import com.rubenvj.carnejoven.features.user.domain.User;
 import com.rubenvj.carnejoven.features.user.presentation.UserPresentation;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
         UserPresentation.createUser(new User("708", "Rubén", "Vallejo", "Casa"));
@@ -22,5 +24,7 @@ public class Main {
 
         BuyPresentation.createBuy("001", "29/02/2024", "708", "777");
         BuyPresentation.getBuys();
+
+        ArrayList<User> users = new ArrayList<>();
     }
 }

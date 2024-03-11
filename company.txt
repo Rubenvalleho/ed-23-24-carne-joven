@@ -1,0 +1,4 @@
+{"companyId":"123","name":"Compañia","cif":"34390"}
+{"companyId":"123","name":"CompaÃ±ia","cif":"34390"}
+{"companyId":"123","name":"Compañia","cif":"34390"}
+{"companyId":"123","name":"CompaÃ±ia","cif":"34390"}

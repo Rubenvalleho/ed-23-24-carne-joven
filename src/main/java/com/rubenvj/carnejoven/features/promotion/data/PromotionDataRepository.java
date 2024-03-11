@@ -7,7 +7,7 @@ import com.rubenvj.carnejoven.features.promotion.domain.PromotionRepository;
 import java.util.ArrayList;
 
 public class PromotionDataRepository implements PromotionRepository {
-    private PromotionFileLocalDataSource promotionFileLocalDataSource;
+    private PromotionFileLocalDataSource promotionFileLocalDataSource = new PromotionFileLocalDataSource();
     private static PromotionDataRepository instance = null;
 
     public static PromotionDataRepository newInstance() {

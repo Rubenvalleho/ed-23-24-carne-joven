@@ -1,0 +1,4 @@
+{"promotionId":"777","title":"Promocion","description":"Promocion","discount":"15%"}
+{"promotionId":"777","title":"Promocion","description":"Promocion","discount":"15%"}
+{"promotionId":"777","title":"Promocion","description":"Promocion","discount":"15%"}
+{"promotionId":"777","title":"Promocion","description":"Promocion","discount":"15%"}
